@@ -67,3 +67,38 @@ class SportsCar extends Car {
     super.drive(distance);
   }
 }
+
+class Mammal {
+  void breathe() {
+    print("Breathe in... breathe out...");
+  }
+}
+
+mixin Agility {
+  // "mixin" can provide properties and methods to share, but you have less of a strong connection.
+  // It's quite a utility function provider.
+  var speed = 10;
+
+  void run() {
+    print("Runnin' at $speed km/h");
+  }
+
+}
+
+class Person extends Mammal with Agility { 
+  // "extends" allows you to call "breathe" for a Person. This is inheritance.
+  // You only can inherit of a single class
+  // But you can use link multiple mixins
+
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+
+  @override
+  void breathe() { // You can also override the breathe method :)
+    print("I'm human ! \n");
+    super.breathe();
+  }
+
+}
